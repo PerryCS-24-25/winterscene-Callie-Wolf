@@ -9,6 +9,13 @@
             "name": "Picture",
             "request": "launch",
             "mainClass": "Picture",
+            "projectName": "winterscene-Callie-Wolf_9f23d851"
+        },
+        {
+            "type": "java",
+            "name": "Picture",
+            "request": "launch",
+            "mainClass": "Picture",
             "projectName": "WinterScene_42a36e29"
         }
     ]

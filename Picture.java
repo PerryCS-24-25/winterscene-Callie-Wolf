@@ -4,30 +4,47 @@ import javax.swing.Timer;
 /**
  * Draw a pretty picture composed of shape objects on a canvas
  * 
- * @author: (Your name)
- * @version: (Date)
+ * @author: (Callie Khor)
+ * @version: (12/11/24)
  * 
  */
 public class Picture
 {
     // Private member (instance) variables
     private Canvas pic;
-    private Circle ball; // The sample ball to animate
-    private int dx = 5; // Speed in x direction for the sample ball
-    private int dy = -5; // Speed in y direction for the sample ball
+    //private Circle ball; // The sample ball to animate
+    //private int dx = 5; // Speed in x direction for the sample ball
+   // private int dy = -5; // Speed in y direction for the sample ball
+    private Circle[] storm;
+    
     
     public Picture()
     {
         // Get a reference to the canvas for this drawing and set its title.
         pic = Canvas.getCanvas();
-        pic.setTitle("Bouncing Ball");
-        pic.setBackgroundColor("white");
+        pic.setTitle("Shed in Blizzard");
+        pic.setBackgroundColor("#D9DDDC");
         
         // Turn off automatic redrawing
         pic.pause(true);
         
-        ball = new Circle();
-        ball.makeVisible();
+       storm= new Circle [400];
+       for(int i=0; i<storm.length; i++)
+       {
+
+             int y=0;
+             int randomX= (int)(Math.random()*800)+0;
+             
+             int randomY= (int)(Math.random()*600)+0;
+        
+            storm[i]= new Circle(randomX, randomY, 10, "#FAF9F6",true);
+        
+
+            
+       }
+
+
+
         
         // Show the initial picture
         pic.redraw();
@@ -38,34 +55,25 @@ public class Picture
      */
     public void update() 
     {
-        int x = ball.getX();
-        int y = ball.getY();
+       
         
-        // Calculate a new position for the ball
-        x = x + dx;
-        y = y + dy;        
-        
-        // Bounce off the edges
-        if (x < 0) {
-            x = 0;
-            dx = -dx;
-        }
-        else if (x + ball.getDiameter() > pic.getWidth()) {
-            dx = -dx;
-            x = pic.getWidth() - ball.getDiameter();
-        }
-        
-        if (y < 0) {
-            y = 0;
-            dy = -dy;
-        }        
-        else if (y + ball.getDiameter() > pic.getHeight()) {
-            y = pic.getHeight() - ball.getDiameter();
-            dy = -dy;
+        for(int i=0; i<storm.length; i++)
+        {
+            int stormer= (int)(Math.random()*50)+0;
+            storm[i].setX(storm[i].getX() + stormer);
+            storm[i].setY(storm[i].getY() + stormer);
+
+            int valuex= storm[i].setX(storm[i].getX() + stormer);
+            int value y=storm[i].setY(storm[i].getY() + stormer);
+
+            if(storm[i]>800 || storm[i]>600)
+            {
+
+            }
+            
         }
         
-        // Move the ball
-        ball.setPosition(x, y);
+ 
         
         // Update the screen
         pic.redraw();
