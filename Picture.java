@@ -73,6 +73,8 @@ public class Picture
     /**
      * Update the screen to create a new frame for the animation
      */
+
+
     public void update() 
     {
        
@@ -96,14 +98,10 @@ public class Picture
             }
             
         }
+    
         
-        for(int i=0; i<lights.length; i++)
-        {
-            String color= "#ADD8E6"
-            lights[i].changeColor("#ADD8E6");
-            lights[i].sleep(1000);
-            lights[i].changeColor("#87CEEB");
-        }
+         
+
  
         
         // Update the screen
