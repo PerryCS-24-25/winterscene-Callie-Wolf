@@ -17,7 +17,7 @@ public class Picture
    // private int dy = -5; // Speed in y direction for the sample ball
     private Circle[] storm;
     private Triangle[] lights;
-    
+    private String color = "magenta";
     
     public Picture()
     {
@@ -100,7 +100,22 @@ public class Picture
         }
     
         
-         
+        if (this.color.equals("magenta")) {
+            for(int i=0; i<lights.length; i++)
+            {
+                lights[i].changeColor("magenta");
+                color="#87CEEB";
+            }
+        }
+        else {
+                
+
+                for(int i=0; i<lights.length; i++)
+                {
+                    lights[i].changeColor("#87CEEB");
+                    color="magenta";
+                }
+        }
 
  
         
